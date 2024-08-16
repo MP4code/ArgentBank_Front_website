@@ -10,8 +10,9 @@ const NavigationMenu = () => {
         <img className="main-nav-logo-image" src={Logo} alt="Argent Bank Logo" />
       </Link>
 
-
+      <h1 class="sr-only">Argent Bank</h1>
       <Link to="/login" className="main-nav-item">
+        <i class="fa fa-user-circle"></i>
         <p>Sign In</p>
       </Link>
     </nav>
