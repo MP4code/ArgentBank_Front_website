@@ -1,7 +1,7 @@
-import React, { useState } from 'react'
+import React from "react";
 
 const Services = (props) => {
-    const { id, title, content } = props;
+    const { title, content } = props;
 
     return (
         <div>

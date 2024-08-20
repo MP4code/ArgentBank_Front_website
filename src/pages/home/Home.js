@@ -3,7 +3,6 @@ import "../../styles/App.css"
 import Banner from "../../assets/img/bank-tree.jpeg";
 import Services from "../../components/Services";
 import dataServices from "../../components/services.json";
-import Images from "../../assets/img/icon-chat.png";
 
 const Home = () => {
   return (
