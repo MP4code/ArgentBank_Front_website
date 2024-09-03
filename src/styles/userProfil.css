@@ -1,0 +1,44 @@
+.inputInfo input {
+    border: 1px solid grey;
+    border-radius: 5px;
+    padding: 5px;
+
+}
+
+.not input {
+    background-color: lightgray;
+    color: grey;
+}
+
+.edit-content_form {
+    padding: 20px;
+}
+
+.edit-form_button {
+    display: block;
+    text-align: center;
+    padding: 1em 2.5em;
+    border-radius: 5px;
+    font-size: 1.1rem;
+    font-weight: bold;
+    margin-top: 1rem;
+    border: none;
+    background-color: #00bc77;
+    color: #fff;
+}
+
+.edit-form {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1em;
+    margin-bottom: 50px;
+}
+
+.edit-content_form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+}

@@ -3,18 +3,16 @@ import "../../styles/App.css";
 import { Link } from "react-router-dom";
 
 import { useDispatch } from 'react-redux';
-import { setToken } from '../../data/userToken.js';
+import { loginUser } from "../../data/actions";
+
 
 
 const Login = () => {
-  const token = localStorage.getItem("token");
-  if (token) {
-    window.location.href = "/profil";
-  }
-  //Variable et valeurs entrés 
+
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
+  const [rememberMe, setRememberMe] = useState(false);
   const dispatch = useDispatch();
 
   const handleChange = (e) => {
@@ -31,41 +29,13 @@ const Login = () => {
     e.preventDefault(); // Empêche le rechargement de la page
 
     const body = {
-      email: email,
-      password: password,
+      email,
+      password,
+      rememberMe,
     };
-    console.log("le body: ", body);
+    console.log(body);
+    loginUser(body, dispatch);
 
-    try {
-      const response = await fetch("http://localhost:3001/api/v1/user/login", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify(body),
-      });
-
-      if (response.ok) {
-        const contentType = response.headers.get("Content-Type");
-
-        if (contentType && contentType.includes("application/json")) {
-          const data = await response.json();
-
-          dispatch(setToken(data.token)); // Enregistre dans Redux
-
-          localStorage.setItem("token", data.token); // Enregistre uniquement le token
-          window.location.href = "/profil";
-
-        } else {
-          alert("Vos identifiants sont incorrects");
-        }
-      } else {
-        alert("Erreur lors de la connexion");
-      }
-    } catch (error) {
-      console.error("Erreur lors de la connexion:", error);
-      alert("Une erreur est survenue. Veuillez réessayer.");
-    }
   };
 
   return (
@@ -99,7 +69,7 @@ const Login = () => {
               />
             </div>
             <div className="input-remember">
-              <input type="checkbox" id="remember-me" />
+              <input checked={rememberMe} onChange={() => setRememberMe(!rememberMe)} type="checkbox" id="remember-me" />
               <label htmlFor="remember-me">Remember me</label>
             </div>
             <button type="submit" className="sign-in-button">
