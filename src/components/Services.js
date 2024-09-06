@@ -1,15 +1,16 @@
 import React from "react";
 
 const Services = (props) => {
-    const { title, content } = props;
+    const { data } = props;
 
     return (
         <div>
             <section className="features">
+                <h2 className="sr-only">Features</h2>
                 <div className="feature-item">
-
-                    <h3 className="feature-item-title">{title}</h3>
-                    <p>{content}</p>
+                    <img src={data.image} alt={data.alt} className="feature-icon" />
+                    <h3 className="feature-item-title">{data.title}</h3>
+                    <p>{data.content}</p>
                 </div>
             </section>
 

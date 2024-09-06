@@ -1,17 +1,22 @@
-import React from "react";
+import React, { useState } from "react";
 import "../../styles/App.css"
 import { useSelector } from "react-redux";
-import { Link } from "react-router-dom";
+import EditUser from "./EditUser";
+import Transactions from "../../components/Transactions";
+
 
 const Profil = () => {
-    const { user } = useSelector(state => state.user)
+    const { user } = useSelector(state => state.user);
+    const [toggleForm, setToggleForm] = useState(false);
+    const [viewTransactions, setviewTransactions] = useState(false);
+
     return (
         <main className="main bg-dark">
             <div className="header">
                 <h1>Welcome back<br />{user.firstName} {user.lastName}!</h1>
-                <Link to="/editUser">
-                    <button className="edit-button">Edit Name</button>
-                </Link>
+                {toggleForm ? <EditUser onClose={() => setToggleForm(false)} /> : <button className="edit-button" onClick={() => setToggleForm(true)}>Edit Name</button>}
+
+
             </div>
             <h2 className="sr-only">Accounts</h2>
             <section className="account">
@@ -21,9 +26,16 @@ const Profil = () => {
                     <p className="account-amount-description">Available Balance</p>
                 </div>
                 <div className="account-content-wrapper cta">
-                    <button className="transaction-button">View transactions</button>
+
+                    {viewTransactions ? (
+                        <button onClick={() => setviewTransactions(false)}>close</button>)
+                        :
+                        (<button className="transaction-button" onClick={() => setviewTransactions(true)}>View transactions</button>)}
                 </div>
             </section>
+            {viewTransactions &&
+                <Transactions />
+            }
             <section className="account">
                 <div className="account-content-wrapper">
                     <h3 className="account-title">Argent Bank Savings (x6712)</h3>

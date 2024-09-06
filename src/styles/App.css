@@ -29,7 +29,13 @@ footer {
 }
 
 /*Home*/
-
+.hero{
+  background-position: 0 -50px;
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 300px;
+  position: relative;
+}
 
 .hero-content {
   position: relative;
@@ -53,15 +59,13 @@ footer {
 }
 
 
-/*Log*/
-.main {
-  flex: 1;
-}
-
+/*Login*/
+/*
 .bg-dark {
   background-color: #12002b;
+  padding: 3rem 0 300px ;
 }
-
+*/
 
 .sign-in-button {
   display: block;
@@ -69,7 +73,7 @@ footer {
   padding: 8px;
   font-size: 1.1rem;
   font-weight: bold;
-  margin-top: 1rem;
+  margin: 1rem 0;
   border-color: #00bc77;
   background-color: #00bc77;
   color: #fff;
@@ -245,4 +249,25 @@ footer {
   font-size: 1.25rem;
   font-weight: bold;
   margin-bottom: 0.5rem;
+}
+
+
+/*transactions*/
+.transactions_container{
+  width: 80%;
+  margin: 0 auto;
+  box-sizing: border-box;
+}
+.transactions_content{
+  padding: 0 5% 0 2%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  justify-content: space-between;
+}
+
+.transactions_infos{
+  display: flex;
+  width: 20%;
+  justify-content: space-between;
 }

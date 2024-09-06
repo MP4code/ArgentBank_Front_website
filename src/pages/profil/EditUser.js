@@ -1,12 +1,13 @@
 import React, { useState, useEffect } from 'react'
 import "../../styles/userProfil.css";
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { EditProfile } from '../../data/actions';
 
-const EditUser = ({ token }) => {
-    const { user } = useSelector(state => state.user);
+const EditUser = ({ onClose }) => {
+    const { user, token } = useSelector(state => state.user);
     const [userName, setUserName] = useState("");
 
+    const dispatch = useDispatch();
     useEffect(() => {
         if (user) {
             setUserName(user.userName);  // L'utilisateur
@@ -23,7 +24,7 @@ const EditUser = ({ token }) => {
         const body = {
             userName,
         };
-        EditProfile(body, token);
+        EditProfile(body, token, dispatch, onClose);
 
     }
 
@@ -35,7 +36,7 @@ const EditUser = ({ token }) => {
             <section className='edit-content'>
 
                 <h1>Edit user info</h1>
-                <form>
+                <form onSubmit={formSubmitEdit}>
                     <div className='edit-content_form'>
                         <div className="inputInfo">
                             <label htmlFor="username">User name:</label>
@@ -51,8 +52,8 @@ const EditUser = ({ token }) => {
                         </div>
                     </div>
                     <div className="edit-form">
-                        <button className="edit-form_button" onClick={formSubmitEdit}>Save</button>
-                        <button className="edit-form_button" >Cancel</button>
+                        <button className="edit-form_button" type='submit' >Save</button>
+                        <button className="edit-form_button" type="button" onClick={onClose} >Cancel</button>
                     </div>
 
                 </form>

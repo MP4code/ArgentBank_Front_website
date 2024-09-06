@@ -22,7 +22,6 @@ const Login = () => {
   const emailChange = (e) => {
     setEmail(e.target.value);
   };
-  // Fonction pour saugarder les identifiants 
 
   // Fonction pour soumettre le formulaire
   const formSubmit = async (e) => {
@@ -39,46 +38,44 @@ const Login = () => {
   };
 
   return (
-    <div>
-      <main className="main bg-dark">
-        <section className="sign-in-content">
-          <i className="fa fa-user-circle sign-in-icon"></i>
-          <h1>Sign In</h1>
-          <form onSubmit={formSubmit}>
-            <div className="input-wrapper">
-              <label htmlFor="email">Email</label>
-              <input
-                type="email"
-                id="email"
-                value={email}
-                // autoComplete sinon error dans la console.
-                autoComplete="email"
-                onChange={emailChange}
-                required
-              />
-            </div>
-            <div className="input-wrapper">
-              <label htmlFor="password">Password</label>
-              <input
-                type="password"
-                id="password"
-                value={password}
-                onChange={handleChange}
-                minLength="5"
-                required
-              />
-            </div>
-            <div className="input-remember">
-              <input checked={rememberMe} onChange={() => setRememberMe(!rememberMe)} type="checkbox" id="remember-me" />
-              <label htmlFor="remember-me">Remember me</label>
-            </div>
-            <button type="submit" className="sign-in-button">
-              Sign In
-            </button>
-            <Link to="/account">Créez un compte</Link>
-          </form>
-        </section>
-      </main>
+    <div className="bg-dark">
+      <section className="sign-in-content">
+        <i className="fa fa-user-circle sign-in-icon"></i>
+        <h1>Sign In</h1>
+        <form onSubmit={formSubmit}>
+          <div className="input-wrapper">
+            <label htmlFor="email">Email</label>
+            <input
+              type="email"
+              id="email"
+              value={email}
+              // autoComplete sinon error dans la console.
+              autoComplete="email"
+              onChange={emailChange}
+              required
+            />
+          </div>
+          <div className="input-wrapper">
+            <label htmlFor="password">Password</label>
+            <input
+              type="password"
+              id="password"
+              value={password}
+              onChange={handleChange}
+              minLength="5"
+              required
+            />
+          </div>
+          <div className="input-remember">
+            <input checked={rememberMe} onChange={() => setRememberMe(!rememberMe)} type="checkbox" id="remember-me" />
+            <label htmlFor="remember-me">Remember me</label>
+          </div>
+          <button type="submit" className="sign-in-button">
+            Sign In
+          </button>
+          <Link to="/account">Créez un compte</Link>
+        </form>
+      </section>
     </div>
   );
 };

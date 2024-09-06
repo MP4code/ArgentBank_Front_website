@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import "../../styles/App.css";
 import { useDispatch } from "react-redux";
 import { newUser } from "../../data/actions";
+import { useNavigate } from "react-router-dom";
 
 const AcountCreation = () => {
 
@@ -10,37 +11,21 @@ const AcountCreation = () => {
   const [firstName, setFirstName] = useState("");
   const [lastName, setLastName] = useState("");
   const [userName, setUserName] = useState("");
-  const [rememberMe, setRememberMe] = useState(false);
-  const dispatch = useDispatch();
 
-  const emailChangeForm = (e) => {
-    setEmail(e.target.value);
-  };
+  const navigate = useNavigate();
 
-  const passWordChangeForm = (e) => {
-    setPassword(e.target.value);
-  };
-  const firstNameChange = (e) => {
-    setFirstName(e.target.value);
-  };
-  const lastNameChange = (e) => {
-    setLastName(e.target.value);
-  };
-  const userNameChange = (e) => {
-    setUserName(e.target.value);
-  };
-  const newUserSubmit = async () => {
-
+  const newUserSubmit = async (e) => {
+    e.preventDefault();
     const body = {
       email,
       password,
       firstName,
       lastName,
       userName,
-      rememberMe,
     };
-    console.log(body);
-    newUser(body, dispatch);
+
+    const goToLogin = () => navigate("/login");
+    newUser(body, goToLogin);
 
 
   };
@@ -54,29 +39,26 @@ const AcountCreation = () => {
           <form onSubmit={newUserSubmit}>
             <div className="input-wrapper">
               <label htmlFor="username">Email</label>
-              <input type="email" id="email" value={email} onChange={emailChangeForm}
+              <input type="email" id="email" value={email} onChange={e => setEmail(e.target.value)}
                 autoComplete="on" required />
             </div>
             <div className="input-wrapper">
               <label htmlFor="username">First Name</label>
-              <input type="text" id="firstname" onChange={firstNameChange} autoComplete="on" />
+              <input type="text" id="firstname" value={firstName} onChange={e => setFirstName(e.target.value)} autoComplete="on" required />
             </div>
             <div className="input-wrapper">
               <label htmlFor="username">Last Name</label>
-              <input type="text" id="lastname" onChange={lastNameChange} autoComplete="on" />
+              <input type="text" id="lastname" value={lastName} onChange={e => setLastName(e.target.value)} autoComplete="on" required />
             </div>
             <div className="input-wrapper">
               <label htmlFor="username">Username</label>
-              <input type="text" id="username" required onChange={userNameChange} autoComplete="on" />
+              <input type="text" id="username" required value={userName} onChange={e => setUserName(e.target.value)} autoComplete="on" />
             </div>
             <div className="input-wrapper">
               <label htmlFor="password">Password</label>
-              <input type="password" id="password" minLength="5" onChange={passWordChangeForm} required autoComplete="on" />
+              <input type="password" id="password" minLength="5" value={password} onChange={e => setPassword(e.target.value)} required autoComplete="on" />
             </div>
-            <div className="input-remember">
-              <input checked={rememberMe} onChange={() => setRememberMe(!rememberMe)} type="checkbox" id="remember-me" />
-              <label htmlFor="remember-me">Remember me</label>
-            </div>
+
             <button type="submit" className="sign-in-button">Create your account</button>
 
           </form>
