@@ -4,8 +4,8 @@ const Services = (props) => {
     const { data } = props;
 
     return (
-        <div>
-            <section className="features">
+        <div className="features">
+            <section>
                 <h2 className="sr-only">Features</h2>
                 <div className="feature-item">
                     <img src={data.image} alt={data.alt} className="feature-icon" />
@@ -13,9 +13,6 @@ const Services = (props) => {
                     <p>{data.content}</p>
                 </div>
             </section>
-
-
-
         </div>
     );
 }

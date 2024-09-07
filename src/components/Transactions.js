@@ -13,9 +13,10 @@ const Transactions = () => {
                 <div className='transactions_infos'>
                     <h4>Amount</h4>
                     <h4>Balance</h4>
+                    <h4 className="hiddenElement">argent</h4>
                 </div>
             </div>
-            <Collapse content="content" />
+            <Collapse />
         </div>
     )
 }

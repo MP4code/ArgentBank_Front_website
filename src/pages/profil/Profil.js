@@ -43,9 +43,16 @@ const Profil = () => {
                     <p className="account-amount-description">Available Balance</p>
                 </div>
                 <div className="account-content-wrapper cta">
-                    <button className="transaction-button">View transactions</button>
+
+                    {viewTransactions ? (
+                        <button onClick={() => setviewTransactions(false)}>close</button>)
+                        :
+                        (<button className="transaction-button" onClick={() => setviewTransactions(true)}>View transactions</button>)}
                 </div>
             </section>
+            {viewTransactions &&
+                <Transactions />
+            }
             <section className="account">
                 <div className="account-content-wrapper">
                     <h3 className="account-title">Argent Bank Credit Card (x8349)</h3>
@@ -53,9 +60,15 @@ const Profil = () => {
                     <p className="account-amount-description">Current Balance</p>
                 </div>
                 <div className="account-content-wrapper cta">
-                    <button className="transaction-button">View transactions</button>
+                    {viewTransactions ? (
+                        <button onClick={() => setviewTransactions(false)}>close</button>)
+                        :
+                        (<button className="transaction-button" onClick={() => setviewTransactions(true)}>View transactions</button>)}
                 </div>
             </section>
+            {viewTransactions &&
+                <Transactions />
+            }
         </main>
     )
 

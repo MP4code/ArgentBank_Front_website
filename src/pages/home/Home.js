@@ -7,7 +7,7 @@ import { servicesData } from "../../components/servicesData";
 
 const Home = () => {
   return (
-    <section>
+    <div>
       <div className="hero" style={{
         backgroundImage: `url(${Banner})`,
       }}>
@@ -19,11 +19,12 @@ const Home = () => {
           <p className="text">Open a savings account with Argent Bank today!</p>
         </section>
       </div>
-      {servicesData.map((data, index) => (
-        <Services data={data} key={data.id} />
-      ))}
-
-    </section>
+      <section className="services">
+        {servicesData.map((data, index) => (
+          <Services data={data} key={data.id} />
+        ))}
+      </section>
+    </div>
   )
 };
 
