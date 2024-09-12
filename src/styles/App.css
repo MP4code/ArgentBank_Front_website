@@ -15,18 +15,7 @@
 }
 /**/
 
-/** Footer **/
-footer {
-    display: flex;
-    justify-content: center;
-    border-top: 2px solid #ccc;
-    padding: 2rem 0 1.5rem;
-  }
 
-.footer-text {
-    margin: 0;
-    padding: 0;
-}
 
 /*Home*/
 .hero{
@@ -60,12 +49,12 @@ footer {
 
 
 /*Login*/
-/*
+
 .bg-dark {
   background-color: #12002b;
   padding: 3rem 0 300px ;
 }
-*/
+
 
 .sign-in-button {
   display: block;
@@ -182,6 +171,7 @@ footer {
   border-color: #00bc77;
   background-color: #00bc77;
   color: #fff;
+  cursor: pointer;
 }
 
 @media (min-width: 720px) {
@@ -259,101 +249,18 @@ footer {
 }
 
 
-
-
-/*****/
-
-/*transactions*/
-.transactions_container{
-  width: 80%;
-  margin: 0 auto;
-  box-sizing: border-box;
-}
-.transactions_content{
-  padding: 0 2% 0 2%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  justify-content: space-between;
-}
-
-.transactions_infos{
-  display: flex;
-  width: 19%;
-  justify-content: space-between;
-}
-.hiddenElement{
- visibility: hidden;
-}
-/*Collapse transaction */
-.collapseContainer{
-  width: 100%;
-  margin: 0 0 2%;
-  box-sizing: border-box;
-  background-color: #00bc77;
-  border-radius: 10px;
-}
-
-.collapseTransactions_content{
-  padding: 0 2% 0 2%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  justify-content: space-between;
-}
-.collapseTransactions_infos{
-  width: 19%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  justify-content: space-between;
-}
-.collapseTransactions_infos p{
-  margin: 0;
-  color: #fff;
-}
-
-.arrowCollapse{
-  cursor: pointer;
-  border: none;
-  background-color: transparent;
-}
-
 /**/
-/** collapse content**/
-.collapseContent{
-  padding: 1rem;
-  color: #fff;
-}
-.collapseContent_category{
-  display: flex;
-  align-items: center;
-
- 
-}
-.collapseInfos p{
-  margin-top: 0;
-}
-.collapseInfos{
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  margin: 0 1em;
-}
 
 
+/** Footer **/
+footer {
+    display: flex;
+    justify-content: center;
+    border-top: 2px solid #ccc;
+    padding: 2rem 0 1.5rem;
+  }
 
-/**/
-/*test*/
-
-.edit_Collapse{
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 1em;
-  border: 2px solid red;
-}
-
-.optionCategory{
- position: absolute;
+.footer-text {
+    margin: 0;
+    padding: 0;
 }
