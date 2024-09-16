@@ -1,6 +1,6 @@
 import React from "react";
 import "../../styles/App.css";
-import Banner from "../../assets/img/bank-tree.jpeg";
+import Banner from "../../assets/img/bank-tree.webp";
 import Services from "../../components/Services";
 import { servicesData } from "../../components/servicesData";
 
