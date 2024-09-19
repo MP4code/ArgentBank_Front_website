@@ -12,7 +12,7 @@ const Account = (props) => {
                 </div>
 
                 <div className="account-content-wrapper cta">
-                    <button class="transaction-button">View transactions</button>
+                    <button className="transaction-button">View transactions</button>
                 </div>
             </section>
         </div>
