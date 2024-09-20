@@ -18,7 +18,7 @@ const AppRouter = () => {
     if (tokenFromStorage) {
       getUser(tokenFromStorage, dispatch);
     }
-  }, [])
+  }, [token])
   return (
     <div>
       <Router>

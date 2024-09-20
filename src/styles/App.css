@@ -216,11 +216,10 @@
 /** Services **/
 .services{
   display: flex;
-  
+  flex-direction: column;
 }
 .features {
   flex-direction: column;
-  width: 100%;
 }
 
 .feature-item {
@@ -242,15 +241,15 @@
 }
 
 /**Media services*/
-@media (min-width: 920px) {
-  .features {
-    flex-direction: row;
+
+@media (min-width: 720px) {
+  .services {
+    flex-direction: row; /* En ligne pour les grands écrans */
   }
 }
 
 
 /**/
-
 
 /** Footer **/
 footer {

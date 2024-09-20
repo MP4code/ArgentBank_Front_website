@@ -35,6 +35,7 @@ export const getUser = async (token, dispatch) => {
         if (response.ok) {
             const data = await response.json();
             dispatch(setUser({ token, user: data.body }));
+            localStorage.setItem('token', token);
         } else {
             alert("Erreur lors de la connexion");
         }
